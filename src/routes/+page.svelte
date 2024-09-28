@@ -2,14 +2,15 @@
 	import Cart from "$lib/compo/Cart.svelte";
 	import Footer from "$lib/compo/Footer.svelte";
 	import Header from "$lib/compo/Header.svelte";
-    import Product from "$lib/compo/Product.svelte";
+  import Product from "$lib/compo/Product.svelte";
 
-	let show = false
+	let show_cart = false
+	let show_categories = true
 </script>
 
-<Header bind:show={show}/>
+<Header bind:show_categories={show_categories} bind:show_cart={show_cart}/>
 <main>
-	<aside id="categories" class="p4">
+	<aside id="categories" class="p4" class:show={show_categories}>
 		<div class="cont fcol g4">
 			<h1>Categorías</h1>
 			<nav class="fcol">
@@ -46,7 +47,7 @@
 			<Product discount name="Nombre corto"/>
 		</div>
 	</article>
-	<Cart bind:show={show}/>
+	<Cart bind:show_cart={show_cart}/>
 </main>
 <Footer/>
 
@@ -65,8 +66,8 @@
 		overflow-y: scroll;
 		max-height: calc(100vh - 162px);
 	}
-	aside a {
-		transition: transform 0.5s;
+	aside, aside a {
+		transition: transform .5s;
 	}
 	aside a:hover {
 		transform: translateX(0.5em);
@@ -83,14 +84,27 @@
 	}
 
 	@media (max-width: 700px) {
+		article, aside {
+			max-height: calc(100vh - 141px);
+		}
 		main {
 			grid-template-columns: 1fr;
+			max-height: inherit;
 		}
 		aside {
 			width: 280px;
 			position: absolute;
 			background: white;
 			transform: translateX(-100%);
+		}
+		aside.show {
+			transform: translateX(0);
+		}
+	}
+
+	@media (max-width: 400px) {
+		article, aside {
+			max-height: calc(100vh - 130px);
 		}
 	}
 </style>

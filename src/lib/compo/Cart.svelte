@@ -1,10 +1,10 @@
 <script lang="ts">
 	import CartProduct from "./CartProduct.svelte";
-	export let show: Boolean
+	export let show_cart: Boolean
 </script>
 
-<article class="fcol p4 g4" class:show>
-	<button type="button" on:click={()=>{show = !show}}>
+<article class="fcol p4 g4" class:show={show_cart}>
+	<button type="button" on:click={()=>{show_cart = !show_cart}}>
 		Cerrar
 	</button>
 	<section class="fcol g4">
@@ -52,10 +52,16 @@
 	article.show {
 		transform: translateX(0);
 	}
-	@media (max-width: 500px) {
+	@media (max-width: 700px) {
 		article {
 			width: 100%;
 			border-left: 0px;
+			max-height: calc(100vh - 141px);
+		}
+	}
+	@media (max-width: 400px) {
+		article {
+			max-height: calc(100vh - 130px);
 		}
 	}
 </style>

@@ -23,6 +23,17 @@ a:hover { text-decoration: underline }
 ul {
 	padding-inline-start: 24px;
 }
+button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0;
+	border: none;
+	background: transparent;
+}
+button:active {
+	scale: 0.95;
+}
 /* Clases útiles */
 .fc { display: flex; align-items: center }
 .fcol { display: flex; flex-direction: column;}
