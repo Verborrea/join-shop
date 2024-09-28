@@ -12,6 +12,7 @@
 
 <style>
 	.slider {
+		width: 100%;
 		display: flex;
 		overflow-x: scroll;
     aspect-ratio: 1;
