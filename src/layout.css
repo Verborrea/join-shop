@@ -2,7 +2,7 @@
 	font-family: 'Mona Sans';
 	src: url('/fonts/MonaSansVF-Regular.woff2');
 }
-:root, input, button, textarea {
+:root, input, button, textarea, select {
 	font-family: 'Mona Sans';
 	font-size: 20px;
 	line-height: 1.5;
@@ -12,7 +12,7 @@ body,h1,h2,h3,p,ul { margin: 0 }
 h1,h2 {
 	line-height: 1.2;
 }
-img { object-fit: cover }
+img { object-fit: cover; display: block; }
 svg { flex-shrink: 0 }
 a {
 	color: black;
@@ -47,6 +47,9 @@ button:active {
 .px4 { padding-inline: 1em; }
 .py4 { padding-block: 1em; }
 .py2 { padding-block: 0.5em; }
+.tached {
+	text-decoration: line-through;
+}
 
 @media (max-width: 700px) {
 	:root, input, button, textarea {

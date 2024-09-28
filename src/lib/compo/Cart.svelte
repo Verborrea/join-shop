@@ -4,9 +4,6 @@
 </script>
 
 <article class="fcol p4 g4" class:show={show_cart}>
-	<button type="button" on:click={()=>{show_cart = !show_cart}}>
-		Cerrar
-	</button>
 	<section class="fcol g4">
 		<h1>Mis Productos</h1>
 		<div class="fcol">

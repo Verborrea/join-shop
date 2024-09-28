@@ -7,14 +7,15 @@
 </script>
 
 <svelte:head>
-	<title>Join Shop</title>
+	<title>Nosotros | Join Shop</title>
 </svelte:head>
 
 <Header bind:show_cart={show_cart}/>
 <main>
 	<article class="p4 fcol g2">
-		<h1>Hola!</h1>
-		<p>Dirigete a la tienda para empezar.</p>
+		<h1>Nosotros</h1>
+		<p>En esta página se hablará de nosotros.</p>
+		<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut numquam nihil suscipit unde quidem ab repellat quasi commodi itaque, reiciendis et repellendus in, illum id natus velit eligendi, accusamus recusandae?</p>
 	</article>
 	<Cart bind:show_cart={show_cart}/>
 </main>
@@ -23,7 +24,7 @@
 <style>
 	main {
 		position: relative;
-		min-height: calc(100vh - 72px - 90px);
+		min-height: calc(100vh - 162px);
 		overflow-x: hidden;
 	}
 	article {
