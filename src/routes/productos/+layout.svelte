@@ -23,19 +23,19 @@
 			</nav>
 		</div>
 	</aside>
-	<article class="p4 fcol g4">
+	<article id="wasa" class="p4 fcol g4">
 		<slot/>
 	</article>
 	<Cart bind:show_cart={show_cart}/>
 </main>
-<Footer/>
+<!-- <Footer/> -->
 
 <style>
 	main {
 		position: relative;
 		display: grid;
 		grid-template-columns: 280px 1fr;
-		min-height: calc(100vh - 72px - 90px);
+		min-height: calc(100vh - 90px);
 		overflow-x: hidden;
 	}
 	aside {
@@ -43,7 +43,7 @@
 	}
 	article, aside {
 		overflow-y: scroll;
-		max-height: calc(100vh - 162px);
+		max-height: calc(100vh - 90px);
 	}
 	aside, aside a {
 		transition: transform .5s;
@@ -56,7 +56,7 @@
 	}
 	@media (max-width: 700px) {
 		article, aside {
-			max-height: calc(100vh - 141px);
+			max-height: calc(100vh - 76px);
 		}
 		main {
 			grid-template-columns: 1fr;
@@ -69,7 +69,7 @@
 
 	@media (max-width: 400px) {
 		article {
-			max-height: calc(100vh - 130px);
+			max-height: calc(100vh - 72px);
 		}
 	}
 </style>

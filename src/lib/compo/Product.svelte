@@ -4,14 +4,21 @@
 	let article:any
 
 	$: final = discount ? price * discount / 100 : price
+
+	function scroll() {
+		document.querySelector('#wasa')!.scroll({
+			top: 0,
+			behavior: "smooth",
+		});
+	}
 </script>
 
 <article class="g2">
-	<a href="/productos/{id}" class="img-cont">
+	<a href="/productos/{id}" on:click={scroll} class="img-cont">
 		<img {src} alt={name}>
 	</a>
 	<section class="info g2">
-		<a href="/productos/{id}"><h1>{name}</h1></a>
+		<a href="/productos/{id}" on:click={scroll}><h1>{name}</h1></a>
 		<div class="categories fc g2">
 			<span>Categorias:</span>
 			{#each categories as category}

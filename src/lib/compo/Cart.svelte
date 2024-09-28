@@ -34,7 +34,7 @@
 
 <style>
 	article {
-		max-height: calc(100vh - 162px);
+		max-height: calc(100vh - 90px);
     overflow-y: scroll;
 		border-left: 2px solid;
 		position: absolute;
@@ -53,12 +53,12 @@
 		article {
 			width: 100%;
 			border-left: 0px;
-			max-height: calc(100vh - 141px);
+			max-height: calc(100vh - 76px);
 		}
 	}
 	@media (max-width: 400px) {
 		article {
-			max-height: calc(100vh - 130px);
+			max-height: calc(100vh - 72px);
 		}
 	}
 </style>
