@@ -1,22 +1,15 @@
 <script>
 	import Slider from "$lib/compo/Slider.svelte"
-	import { cart } from "$lib/stores.js"
 	import Product from "$lib/compo/Product.svelte"
+	import { cart } from "$lib/stores.js"
 
 	export let data
 
 	$: products = data.products
 
-	$: final_price = data.product.discount ?
+	$: final = data.product.discount ?
 		data.product.price * data.product.discount / 100 :
 		data.product.price
-
-	function addProduct() {
-		cart.addItem(data.product.id, final_price)
-	}
-	function removeProduct() {
-		cart.removeItem(data.product.id)
-	}
 
 	$: cantidad = $cart.items.filter(item => item.id === data.product.id).reduce(
 		(acc, cur) => acc + cur.quantity,
@@ -48,15 +41,15 @@
 				{#if data.product.discount}
 					<span class="tached">S/&nbsp;{data.product.price}</span>
 				{/if}
-				<strong>S/&nbsp;{final_price.toFixed(2)}</strong>
+				<strong>S/&nbsp;{final.toFixed(2)}</strong>
 			</p>
 		</section>
 		<section class="btns fc between">
 			<span>En tu carrito</span>
 			<div class="fc g4">
-				<button class=btn type="button" on:click={removeProduct}>-</button>
+				<button class=btn type="button" on:click={() => cart.removeItem(data.product.id)}>-</button>
 				<span>{cantidad}</span>
-				<button class=btn type="button" on:click={addProduct}>+</button>
+				<button class=btn type="button" on:click={() => cart.addItem(data.product.id, data.product.name, final)}>+</button>
 			</div>
 		</section>
 	</section>
@@ -87,14 +80,6 @@
 		display: flex;
 		gap: 8px;
 		flex-wrap: wrap;
-	}
-	.btn {
-		width: 2em;
-    height: 2em;
-    border: 2px solid;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 	}
 	.product {
 		--min-grid-absolute-size: 16rem;

@@ -22,15 +22,12 @@
 	<title>Productos | Join Shop</title>
 </svelte:head>
 
-<section class="mobile-categories fcol g4">
-	<h1>Categoría:</h1>
-	<select name="categories" id="categories" on:change={e => routeTo(e)}>
-		<option value="all" selected>Todas las categorias</option>
-		{#each categories as category}
-			<option value={category.id}>{category.name}</option>
-		{/each}
-	</select>
-</section>
+<select class="mobile-categories" name="categories" id="categories" on:change={e => routeTo(e)}>
+	<option value="all" selected>Todas las categorias</option>
+	{#each categories as category}
+		<option value={category.id}>{category.name}</option>
+	{/each}
+</select>
 <section class="products g4">
 	{#each products as product}
 		<Product

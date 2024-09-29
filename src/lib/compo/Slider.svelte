@@ -22,7 +22,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		width: 100%;
+		width: calc(100vw - 2em);
 		aspect-ratio: 1;
 		background: #dfdfdf;
 		scroll-snap-align: center;

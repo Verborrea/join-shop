@@ -51,6 +51,18 @@ button:active {
 	text-decoration: line-through;
 }
 
+.btn {
+	width: 2em;
+	height: 2em;
+	border: 2px solid;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.btn:hover {
+	background: #e6e6e6;
+}
+
 @media (max-width: 700px) {
 	:root, input, button, textarea {
 		font-size: 18px;

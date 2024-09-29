@@ -12,6 +12,7 @@ import { writable } from 'svelte/store';
 /** 
  * @typedef {Object} CartItem
  * @property {string} id - El ID del producto.
+ * @property {string} name - El nombre del producto.
  * @property {number} price - El precio del producto.
  * @property {number} quantity - La cantidad del producto en el carrito.
  */
@@ -36,9 +37,10 @@ function createCart() {
 		/**
 		 * Añadir un producto al carrito
 		 * @param {string} id - ID del producto a añadir
+		 * @param {string} name - Nombre del producto a añadir
 		 * @param {number} price - Precio del producto a añadir
 		 */
-		addItem: (id, price) =>
+		addItem: (id, name, price) =>
 			update((state) => {
 				const index = state.items.findIndex(item => item.id === id);
 
@@ -47,7 +49,7 @@ function createCart() {
 					state.items[index].quantity += 1;
 				} else {
 					// Añadir nuevo producto al carrito
-					state.items.push({ id, price, quantity: 1 });
+					state.items.push({ id, name, price, quantity: 1 });
 				}
 
 				state.subtotal += price;

@@ -1,7 +1,7 @@
 <script lang="ts">
-	export let id, src, name, discount, price, categories
+	import { cart } from "$lib/stores.js"
 
-	let article:any
+	export let id, src, name, discount, price, categories
 
 	$: final = discount ? price * discount / 100 : price
 
@@ -27,7 +27,7 @@
 		</div>
 	</section>
 	<div class="actions fc between">
-		<button type="button">Comprar</button>
+		<button type="button" on:click={() => cart.addItem(id, name, final)}>Comprar</button>
 		<p class="price">
 			{#if discount}
 				<span class="tached">S/&nbsp;{price.toFixed(2)}</span>
@@ -38,6 +38,16 @@
 </article>
 
 <style>
+	button {
+		border: 2px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0.5em;
+	}
+	button:hover {
+		background: #e6e6e6;
+	}
 	h1 {
 		font-size: 1em;
 	}

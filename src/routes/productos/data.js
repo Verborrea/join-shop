@@ -21,7 +21,7 @@ export const products = [
 		id: '123',
 		name: 'Crema anti-arrugas "Eterna juventud"',
 		desc: 'Elimina esas arrugas que te recuerdan que estás más cerca del fin. Solo $99 para que sigas creyendo que la juventud se compra en un tarro.',
-		price: 99.99,
+		price: 67,
 		discount: 50,
 		stock: 50,
 		categories: [{
@@ -38,7 +38,7 @@ export const products = [
 		id: "002",
 		name: "Teléfono \"Hipernovedoso 3000\"",
 		desc: "Con tecnología avanzada para hacerte sentir anticuado en seis meses. Pero oye, al menos tus selfies saldrán mejor que nunca (por ahora).",
-		price: 1299.99,
+		price: 1290,
 		discount: 20,
 		stock: 20,
 		categories: [
@@ -56,7 +56,7 @@ export const products = [
 		id: "003",
 		name: "Suplemento vitamínico \"Vida infinita\"",
 		desc: "La pastilla que promete añadir años a tu vida mientras ignoras el hecho de que una buena dieta y ejercicio son más efectivos. Pero, ¿quién tiene tiempo para eso?",
-		price: 49.99,
+		price: 45.5,
 		discount: 0,
 		stock: 100,
 		categories: [
