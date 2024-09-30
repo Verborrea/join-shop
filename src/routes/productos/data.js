@@ -29,7 +29,7 @@ export const categories = [
 export const products = [
 	{
 		id: '123',
-		name: 'Crema anti-arrugas "Eterna juventud"',
+		name: 'Crema anti-arrugas Eterna juventud',
 		desc: 'Elimina esas arrugas que te recuerdan que estás más cerca del fin. Solo $99 para que sigas creyendo que la juventud se compra en un tarro.',
 		price: 67,
 		discount: 50,
@@ -43,7 +43,7 @@ export const products = [
 	},
 	{
 		id: "002",
-		name: "Teléfono \"Hipernovedoso 3000\"",
+		name: "Teléfono Hipernovedoso 3000",
 		desc: "Con tecnología avanzada para hacerte sentir anticuado en seis meses. Pero oye, al menos tus selfies saldrán mejor que nunca (por ahora).",
 		price: 1290,
 		discount: 20,
@@ -56,7 +56,7 @@ export const products = [
 	},
 	{
 		id: "003",
-		name: "Suplemento vitamínico \"Vida infinita\"",
+		name: "Suplemento vitamínico Vida infinita",
 		desc: "La pastilla que promete añadir años a tu vida mientras ignoras el hecho de que una buena dieta y ejercicio son más efectivos. Pero, ¿quién tiene tiempo para eso?",
 		price: 45.5,
 		discount: 0,
@@ -71,7 +71,7 @@ export const products = [
 	},
 	{
 		id: "004",
-		name: "Reloj inteligente \"Vigilante del tiempo\"",
+		name: "Reloj inteligente Vigilante del tiempo",
 		desc: "Tu nuevo compañero que te dirá cuánto tiempo pasas en redes sociales. No te preocupes, también cuenta pasos... ¡para que te sientas mejor!",
 		price: 199,
 		discount: 10,
@@ -84,7 +84,7 @@ export const products = [
 	},
 	{
 		id: "005",
-		name: "Sarten antiadherente \"Cocinero profesional\"",
+		name: "Sarten antiadherente Cocinero profesional",
 		desc: "La herramienta perfecta para que hasta el más torpe de los chefs pueda crear algo comestible. Recuerda, todo sabe mejor con una buena presentación.",
 		price: 39.99,
 		discount: 15,
@@ -96,7 +96,7 @@ export const products = [
 	},
 	{
 		id: "006",
-		name: "Vestido de gala \"Deslumbrante\"",
+		name: "Vestido de gala Deslumbrante",
 		desc: "Para esas ocasiones especiales en las que quieres ser el centro de atención. Solo asegúrate de que tu outfit no le robe el protagonismo al evento.",
 		price: 150,
 		discount: 25,

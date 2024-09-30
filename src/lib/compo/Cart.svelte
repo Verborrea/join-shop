@@ -1,7 +1,14 @@
 <script lang="ts">
+	import { goto } from "$app/navigation";
 	import { cart, datos } from "$lib/stores";
 
 	export let show_cart: Boolean
+
+	$: disabled = $cart.quantity === 0 || !$datos.valid_location
+
+	function checkout() {
+		goto('/comprar')
+	}
 </script>
 
 <article class="cart fcol p4 g4" class:show={show_cart}>
@@ -17,14 +24,11 @@
 				{#each $cart.items as item (item.id)}
 					<article class="item">
 						<div class="fcol g2">
-							<a href="/productos/{item.id}" on:click={() => {show_cart = false; document.querySelector('main')?.scroll({
-								top: 0,
-								behavior: "smooth",
-							});}}>{item.name}</a>
+							<a href="/productos/{item.id}" on:click={() => show_cart = false}>{item.name}</a>
 							<section class="btns fc g2">
-								<button class=btn type="button" on:click={() => cart.removeItem(item.id)}>-</button>
+								<button class="btn btn-square" type="button" on:click={() => cart.removeItem(item.id)}>-</button>
 								<span>{item.quantity}</span>
-								<button class=btn type="button" on:click={() => cart.addItem(item.id, item.name, item.price)}>+</button>
+								<button class="btn btn-square" type="button" on:click={() => cart.addItem(item.id, item.name, item.price)}>+</button>
 							</section>
 						</div>
 						<strong class="price">S/&nbsp;{(item.price * item.quantity).toFixed(2)}</strong>
@@ -41,14 +45,21 @@
 			<strong>S/&nbsp;{$cart.subtotal.toFixed(2)}</strong>
 		</div>
 	</section>
-	<section>
-		<div class="between">
-			<strong>Costo de Envío</strong>
-			<strong>S/&nbsp;{$datos.envio.toFixed(2)}</strong>
-		</div>
-	</section>
 	{#if $datos.coords.length === 0}
-	<a href="/mapa" class="btn btn-error">Seleccione su ubicación</a>
+		<a href="/mapa" class="btn btn-error">Seleccione su ubicación</a>
+	{:else}
+		<section class="fcol g4">
+			{#if $datos.valid_location}
+				<p>Día de envío: {$datos.day}</p>
+				<div class="between">
+					<strong>Costo de Envío</strong>
+					<strong>S/&nbsp;{$datos.envio.toFixed(2)}</strong>
+				</div>
+			{:else}
+				<p>Ubicación no válida 🙁</p>	
+			{/if}
+			<a href="/mapa" class="btn">Cambiar la ubicación</a>
+		</section>
 	{/if}
 	<section>
 		<div class="between">
@@ -57,11 +68,12 @@
 		</div>
 	</section>
 	<button class="btn" type="button" on:click={cart.clearCart}>Limpiar Carrito</button>
-	<button class="btn btn-primary" type="button" disabled>Comprar</button>
+	<button class="btn btn-primary" type="button" on:click={checkout} {disabled}>Comprar</button>
 </article>
 
 <style>
 	.cart {
+		z-index: 2;
 		max-height: calc(100vh - 90px);
     overflow-y: scroll;
 		border-left: 2px solid;
@@ -78,8 +90,6 @@
 		transform: translateX(0);
 	}
 	.btn {
-		width: unset;
-		height: unset;
 		padding: 0.25em 1em;
 	}
 	.item {
@@ -96,7 +106,7 @@
 	.item strong {
 		text-align: end;
 	}
-	.btns .btn {
+	.btn-square {
 		width: 1.5em;
 		height: 1.5em;
 		padding: 0;

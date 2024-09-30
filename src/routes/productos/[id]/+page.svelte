@@ -47,9 +47,9 @@
 			<strong>S/&nbsp;{final.toFixed(2)}</strong>
 		</p>
 		<section class="fc g4">
-			<button class=btn type="button" on:click={() => cart.removeItem(data.product.id)}>-</button>
+			<button class="btn btn-square" type="button" on:click={() => cart.removeItem(data.product.id)}>-</button>
 			<span>{cantidad}</span>
-			<button class=btn type="button" on:click={() => cart.addItem(data.product.id, data.product.name, final)}>+</button>
+			<button class="btn btn-square" type="button" on:click={() => cart.addItem(data.product.id, data.product.name, final)}>+</button>
 		</section>
 	</section>
 </article>
@@ -80,6 +80,10 @@
 		gap: 8px;
 		flex-wrap: wrap;
 	}
+	.btn-square {
+		width: 2em;
+		height: 2em;
+	}
 	.product {
 		--min-grid-absolute-size: 20rem;
 		--max-grid-relative-size: 50%;
@@ -98,7 +102,7 @@
 	.precio {
 		font-size: 1.5em;
 	}
-	@media (max-width: 750px) {
+	@media (max-width: 700px) {
 		h1 {
 			font-size: 24px;
 		}

@@ -23,7 +23,11 @@
 			<span>{$cart.quantity}</span>
 		</button>
 		<button type="button" class="burger" on:click={()=>{active = !active}}>
-			<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
+			{#if active}
+				<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M481-406 290-214q-16 16-38 15.5T214-215q-15-16-14.5-37t15.5-37l190-191-191-193q-15-16-15-37t15-37q16-16 38-16.5t38 15.5l191 192 189-192q16-16 38-15.5t38 16.5q15 16 14.5 37T745-673L555-480l190 191q15 15 15.5 36.5T746-215q-16 16-38 16.5T670-214L481-406Z"/></svg>
+			{:else}
+				<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
+			{/if}
 		</button>
 	</div>
 </header>
@@ -35,10 +39,14 @@
 	}
 	header {
 		border-bottom: 2px solid;
+		position: sticky;
+		inset: 0 0 auto 0;
+		background-color: white;
+		z-index: 4;
 	}
 	.burger {
 		display: none;
-		z-index: 2;
+		z-index: 4;
 	}
 	.cart {
 		position: relative;
@@ -65,12 +73,14 @@
 			flex-direction: column;
 			position: absolute;
 			background: white;
-			inset: 0;
-			z-index: 1;
+			left: 0;
+			right: 0;
+			top: 0;
+			height: 100dvh;
 			justify-content: center;
 			transition: transform .5s;
 			transform: translateY(-100%);
-			font-size: 2em;
+			font-size: 1.5em;
 		}
 		nav.active {
 			transform: translateY(0);

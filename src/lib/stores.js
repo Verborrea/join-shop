@@ -21,12 +21,13 @@ import { writable } from 'svelte/store';
  * @typedef {Object} Datos
  * @property {number} envio
  * @property {number[]} coords
- * @property {string[]} days
+ * @property {string} day
  * @property {string} name
  * @property {string} phone
  * @property {string} email
  * @property {string} notes
  * @property {string} address
+ * @property {boolean} valid_location
  * @returns {Cart} Estado inicial de los datos
  */
 
@@ -45,7 +46,8 @@ const getInitialCartState = () => ({
 const getInitialDatosState = () => ({
 	envio: 0,
 	coords: [],
-	days: [],
+	day: '',
+	valid_location: false,
 	name: '',
 	phone: '',
 	email: '',

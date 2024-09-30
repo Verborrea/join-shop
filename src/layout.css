@@ -7,6 +7,9 @@
 	font-size: 20px;
 	line-height: 1.5;
 }
+:root {
+	scroll-behavior: smooth;
+}
 * { box-sizing: border-box }
 body,h1,h2,h3,p,ul { margin: 0 }
 h1,h2 {
@@ -40,6 +43,7 @@ button:active {
 .between { display: flex; justify-content: space-between}
 .center {justify-content:center}
 .p4 { padding: 1em }
+.g8 { gap: 2em }
 .g4 { gap: 1em }
 .g3 { gap: 0.75em }
 .g2 { gap: 0.5em }
@@ -53,18 +57,20 @@ button:active {
 
 .btn {
 	border-radius: 0.5em;
-	width: 2em;
-	height: 2em;
 	border: 2px solid;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	font-weight: bold;
 	background: white;
+	padding: 0.25em 1em;
 }
 .btn:hover {
 	background: #e6e6e6;
 	text-decoration: none;
+}
+.btn-square {
+	padding: 0;
 }
 .btn-primary {
 	background: black;

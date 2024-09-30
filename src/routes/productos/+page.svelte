@@ -47,11 +47,22 @@
 </section>
 
 <style>
+	h1 {
+		font-size: 2em;
+	}
 	.products {
 		--min-grid-absolute-size: 16rem;
 		--max-grid-relative-size: 33%;
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(max(min(var(--min-grid-absolute-size), 100%), var(--max-grid-relative-size) - 1rem), 1fr));
 		gap: 1rem;
+	}
+	@media (max-width: 700px) {
+		strong {
+			display: none;
+		}
+		select {
+			width: 100%;
+		}
 	}
 </style>

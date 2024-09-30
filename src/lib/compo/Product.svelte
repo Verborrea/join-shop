@@ -4,21 +4,14 @@
 	export let id, src, name, discount, price, categories
 
 	$: final = discount ? price * discount / 100 : price
-
-	function scroll() {
-		document.querySelector('main')!.scroll({
-			top: 0,
-			behavior: "smooth",
-		});
-	}
 </script>
 
 <article class="g2">
-	<a href="/productos/{id}" on:click={scroll} class="img-cont">
+	<a href="/productos/{id}" class="img-cont">
 		<img {src} alt={name}>
 	</a>
 	<section class="info g2">
-		<a href="/productos/{id}" on:click={scroll}><h1>{name}</h1></a>
+		<a href="/productos/{id}"><h1>{name}</h1></a>
 		<div class="categories fc g2">
 			{#each categories as category}
 				<a href="/productos?category={category.id}">{category.name}</a>
