@@ -23,7 +23,7 @@
 			</nav>
 		</div>
 	</aside>
-	<article id="wasa" class="p4 fcol g4">
+	<article class="p4 fcol g4">
 		<slot/>
 	</article>
 	<Cart bind:show_cart={show_cart}/>

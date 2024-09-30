@@ -17,6 +17,19 @@ import { writable } from 'svelte/store';
  * @property {number} quantity - La cantidad del producto en el carrito.
  */
 
+/**
+ * @typedef {Object} Datos
+ * @property {number} envio
+ * @property {number[]} coords
+ * @property {string[]} days
+ * @property {string} name
+ * @property {string} phone
+ * @property {string} email
+ * @property {string} notes
+ * @property {string} address
+ * @returns {Cart} Estado inicial de los datos
+ */
+
 /** 
  * @returns {Cart} Estado inicial del carrito
  */
@@ -25,6 +38,20 @@ const getInitialCartState = () => ({
 	subtotal: 0,
 	quantity: 0,
 });
+
+/** 
+ * @returns {Datos} Estado inicial del carrito
+ */
+const getInitialDatosState = () => ({
+	envio: 0,
+	coords: [],
+	days: [],
+	name: '',
+	phone: '',
+	email: '',
+	notes: '',
+	address: '',
+})
 
 function createCart() {
 
@@ -90,7 +117,14 @@ function createCart() {
 	};
 }
 
-// export const container = writable(0)
+function createDatos() {
+	const { subscribe, set, update } = writable(getInitialDatosState());
+	return {
+		subscribe,
+		set,
+		update
+	}
+}
 
-// Uso del carrito
 export const cart = createCart();
+export const datos = createDatos();

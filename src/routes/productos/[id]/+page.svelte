@@ -21,7 +21,12 @@
 	<title>Productos | Join Shop</title>
 </svelte:head>
 
-<a href="/productos"><h3>Regresar a la tienda</h3></a>
+<a href="/productos">
+	<h3 class="fc g1">
+		<svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px" fill="currentColor"><path d="M562-221 302-481l260-260 74 74-186 186 186 186-74 74Z"/></svg>
+		Regresar a la tienda
+	</h3>
+</a>
 <article class="product">
 	<Slider images={data.product.images} alt={data.product.name}/>
 	<section class="data fcol g4">
@@ -35,22 +40,16 @@
 		{#if data.product.discount}
 			<p>Este producto cuenta con {data.product.discount}% de Descuento</p>
 		{/if}
-		<section class="fc between g4">
-			<span>Precio: </span>
-			<p>
-				{#if data.product.discount}
-					<span class="tached">S/&nbsp;{data.product.price}</span>
-				{/if}
-				<strong>S/&nbsp;{final.toFixed(2)}</strong>
-			</p>
-		</section>
-		<section class="btns fc between">
-			<span>En tu carrito</span>
-			<div class="fc g4">
-				<button class=btn type="button" on:click={() => cart.removeItem(data.product.id)}>-</button>
-				<span>{cantidad}</span>
-				<button class=btn type="button" on:click={() => cart.addItem(data.product.id, data.product.name, final)}>+</button>
-			</div>
+		<p class="precio">
+			{#if data.product.discount}
+				<span class="tached">S/&nbsp;{data.product.price}</span>
+			{/if}
+			<strong>S/&nbsp;{final.toFixed(2)}</strong>
+		</p>
+		<section class="fc g4">
+			<button class=btn type="button" on:click={() => cart.removeItem(data.product.id)}>-</button>
+			<span>{cantidad}</span>
+			<button class=btn type="button" on:click={() => cart.addItem(data.product.id, data.product.name, final)}>+</button>
 		</section>
 	</section>
 </article>
@@ -82,7 +81,7 @@
 		flex-wrap: wrap;
 	}
 	.product {
-		--min-grid-absolute-size: 16rem;
+		--min-grid-absolute-size: 20rem;
 		--max-grid-relative-size: 50%;
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(max(min(var(--min-grid-absolute-size), 100%), var(--max-grid-relative-size) - 1rem), 1fr));
@@ -95,6 +94,9 @@
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(max(min(var(--min-grid-absolute-size), 100%), var(--max-grid-relative-size) - 1rem), 1fr));
 		gap: 1rem;
+	}
+	.precio {
+		font-size: 1.5em;
 	}
 	@media (max-width: 750px) {
 		h1 {

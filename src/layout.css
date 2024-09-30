@@ -52,15 +52,33 @@ button:active {
 }
 
 .btn {
+	border-radius: 0.5em;
 	width: 2em;
 	height: 2em;
 	border: 2px solid;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	font-weight: bold;
+	background: white;
 }
 .btn:hover {
 	background: #e6e6e6;
+	text-decoration: none;
+}
+.btn-primary {
+	background: black;
+	color: white;
+}
+.btn-primary:hover {
+	background: #242424;
+}
+.btn-error {
+	color: red;
+}
+.btn:disabled {
+	color: #b8b8b8;
+	background: #d7d7d7;
 }
 
 @media (max-width: 700px) {

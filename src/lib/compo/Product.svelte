@@ -6,7 +6,7 @@
 	$: final = discount ? price * discount / 100 : price
 
 	function scroll() {
-		document.querySelector('#wasa')!.scroll({
+		document.querySelector('main')!.scroll({
 			top: 0,
 			behavior: "smooth",
 		});
