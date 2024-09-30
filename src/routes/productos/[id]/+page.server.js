@@ -8,7 +8,7 @@ export async function load({ params }) {
 
 	const seleccionados = new Set();
 
-	while (seleccionados.size < 3) {
+	while (seleccionados.size < 2) {
 			const indiceAleatorio = Math.floor(Math.random() * products.length);
 			seleccionados.add(products[indiceAleatorio]);
 	}

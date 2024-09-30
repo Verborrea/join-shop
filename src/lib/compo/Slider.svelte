@@ -22,10 +22,13 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		width: calc(100vw - 2em);
+		width: 100%;
+		min-width: 100%;
 		aspect-ratio: 1;
-		background: #dfdfdf;
+		background: #eee;
 		scroll-snap-align: center;
+		overflow: hidden;
+		border-radius: 1em;
 	}
 	img {
 		width: 100%;

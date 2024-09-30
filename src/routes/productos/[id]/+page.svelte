@@ -54,7 +54,7 @@
 		</section>
 	</section>
 </article>
-<article>
+<article class="fcol g4">
 	<h1>Otros artículos similares</h1>
 	<section class="products">
 		{#each products as product}
@@ -86,6 +86,7 @@
 		--max-grid-relative-size: 50%;
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(max(min(var(--min-grid-absolute-size), 100%), var(--max-grid-relative-size) - 1rem), 1fr));
+		align-items: center;
 		gap: 1rem;
 	}
 	.products {

@@ -33,16 +33,22 @@
 <style>
 	main {
 		position: relative;
-		display: grid;
-		grid-template-columns: 280px 1fr;
+		/* display: grid; */
+		/* grid-template-columns: 280px 1fr; */
+		/* grid-template-columns: 1fr; */
 		min-height: calc(100vh - 90px);
 		overflow-x: hidden;
 	}
 	aside {
+		display: none;
 		border-right: 2px solid;
 	}
+	article {
+		margin: auto;
+		max-width: 1080px;
+	}
 	article, aside {
-		overflow-y: scroll;
+		/* overflow-y: scroll; */
 		max-height: calc(100vh - 90px);
 	}
 	aside, aside a {

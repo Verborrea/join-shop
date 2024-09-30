@@ -20,39 +20,32 @@
 	<section class="info g2">
 		<a href="/productos/{id}" on:click={scroll}><h1>{name}</h1></a>
 		<div class="categories fc g2">
-			<span>Categorias:</span>
 			{#each categories as category}
 				<a href="/productos?category={category.id}">{category.name}</a>
 			{/each}
 		</div>
 	</section>
 	<div class="actions fc between">
-		<button type="button" on:click={() => cart.addItem(id, name, final)}>Comprar</button>
 		<p class="price">
 			{#if discount}
 				<span class="tached">S/&nbsp;{price.toFixed(2)}</span>
 			{/if}
 			<strong>S/&nbsp;{final.toFixed(2)}</strong>
 		</p>
+		{#if discount}
+		<p>-{discount.toFixed(0)}%</p>
+		{/if}
 	</div>
+	
 </article>
 
 <style>
-	button {
-		border: 2px solid;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 0.5em;
-	}
-	button:hover {
-		background: #e6e6e6;
-	}
 	h1 {
 		font-size: 1em;
 	}
 	.img-cont {
 		overflow: hidden;
+		border-radius: 1em;
 	}
 	.img-cont:hover img {
 		scale: 1.1;

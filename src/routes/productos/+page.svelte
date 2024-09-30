@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import { page } from '$app/stores';
 
   import Product from "$lib/compo/Product.svelte";
 
@@ -22,12 +23,16 @@
 	<title>Productos | Join Shop</title>
 </svelte:head>
 
-<select class="mobile-categories" name="categories" id="categories" on:change={e => routeTo(e)}>
-	<option value="all" selected>Todas las categorias</option>
-	{#each categories as category}
-		<option value={category.id}>{category.name}</option>
-	{/each}
-</select>
+<h1>Nuestros Productos</h1>
+<section class="fc g4">
+	<strong>Categoría:</strong>
+	<select name="categories" id="categories" on:change={e => routeTo(e)}>
+		<option value="all" selected={!$page.url.searchParams.has('category')}>Todas las categorias</option>
+		{#each categories as category}
+			<option value={category.id} selected={$page.url.searchParams.get('category') === category.id}>{category.name}</option>
+		{/each}
+	</select>
+</section>
 <section class="products g4">
 	{#each products as product}
 		<Product
@@ -48,13 +53,5 @@
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(max(min(var(--min-grid-absolute-size), 100%), var(--max-grid-relative-size) - 1rem), 1fr));
 		gap: 1rem;
-	}
-	.mobile-categories {
-		display: none;
-	}
-	@media (max-width: 700px) {
-		.mobile-categories {
-			display: flex;
-		}
 	}
 </style>

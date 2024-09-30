@@ -10,14 +10,17 @@
 	<section class="fcol g4">
 		<div class="fc between">
 			<h1>Mi Carrito</h1>
-			<button class="limpiar btn" type="button" on:click={cart.clearCart}>Limpiar</button>
+			<button class="limpiar btn" type="button" on:click={() => show_cart = false}>Cerrar</button>
 		</div>
 		<div class="fcol g4">
 			{#each $cart.items as item (item.id)}
 				<article class="item">
-					<div class="fcol g1">
-						<a href="/productos/{item.id}">{item.name}</a>
-						<section class="btns fc g4">
+					<div class="fcol g2">
+						<a href="/productos/{item.id}" on:click={() => {show_cart = false; document.querySelector('#wasa')?.scroll({
+							top: 0,
+							behavior: "smooth",
+						});}}>{item.name}</a>
+						<section class="btns fc g2">
 							<button class=btn type="button" on:click={() => cart.removeItem(item.id)}>-</button>
 							<span>{item.quantity}</span>
 							<button class=btn type="button" on:click={() => cart.addItem(item.id, item.name, item.price)}>+</button>
@@ -46,16 +49,25 @@
 			<strong>S/&nbsp;{(envio + $cart.subtotal).toFixed(2)}</strong>
 		</div>
 	</section>
+	<button class="limpiar btn" type="button" on:click={cart.clearCart}>Limpiar Carrito</button>
+	<button class="limpiar btn btn-primary" type="button" on:click={cart.clearCart}>Comprar</button>
 </article>
 
 <style>
+	.btn-primary {
+		background: black;
+		color: white;
+	}
+	.btn-primary:hover {
+		background: #1e1e1e;
+	}
 	.cart {
 		max-height: calc(100vh - 90px);
     overflow-y: scroll;
 		border-left: 2px solid;
-		position: absolute;
+		position: fixed;
     right: 0;
-    top: 0;
+    top: 90px;
     bottom: 0;
     width: 360px;
     background: white;
@@ -74,15 +86,12 @@
 		display: grid;
 		grid-template-columns: auto 1fr;
 		gap: 1em;
-		align-items: center;
+		align-items: end;
 	}
-	.item a {
+	.item a, .item .price {
+		font-weight: normal;
 		font-size: 18px;
 		line-height: 1.1;
-	}
-	.item .price {
-		font-size: 18px;
-    font-weight: normal;
 	}
 	.item strong {
 		text-align: end;
@@ -96,11 +105,13 @@
 			width: 100%;
 			border-left: 0px;
 			max-height: calc(100vh - 76px);
+			top: 76px;
 		}
 	}
 	@media (max-width: 400px) {
 		.cart {
 			max-height: calc(100vh - 72px);
+			top: 72px;
 		}
 	}
 </style>
