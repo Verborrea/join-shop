@@ -13,7 +13,7 @@
 	import Header from "$lib/compo/Header.svelte";
 	import { goto } from "$app/navigation";
 
-	let show_cart = true
+	let show_cart = false
 	let zone_days: string[] = []
 	let prev_id: number | undefined
 	let troste: any
