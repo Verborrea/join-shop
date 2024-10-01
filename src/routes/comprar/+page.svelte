@@ -53,6 +53,12 @@
 <main class="py4" class:color={step === 3}>
 	<article class="px4 py8 fcol g4">
 		<h1>Ya casi!</h1>
+		<ul class="steps">
+			<li class="step" class:step-primary={step > 0}>Productos</li>
+			<li class="step" class:step-primary={step > 1}>Datos de envío</li>
+			<li class="step" class:step-primary={step > 2}>Pago</li>
+			<li class="step" class:step-primary={step > 3}>Subir Captura</li>
+		</ul>
 		{#if step === 1}
 			<p>Por favor confirma los productos en tu carrito para continuar.</p>
 			{#each $cart.items as item (item.id)}
@@ -125,7 +131,7 @@
 				{#if src}
 					<img {src} alt="Captura">
 				{:else}
-					<svg class="nube" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="black"><path d="M260-160q-91 0-155.5-63T40-377q0-78 47-139t123-78q25-92 100-149t170-57q117 0 198.5 81.5T760-520q69 8 114.5 59.5T920-340q0 75-52.5 127.5T740-160H520q-33 0-56.5-23.5T440-240v-206l-64 62-56-56 160-160 160 160-56 56-64-62v206h220q42 0 71-29t29-71q0-42-29-71t-71-29h-60v-80q0-83-58.5-141.5T480-720q-83 0-141.5 58.5T280-520h-20q-58 0-99 41t-41 99q0 58 41 99t99 41h100v80H260Zm220-280Z"/></svg>
+					<svg class="nube" xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#d7d7d7"><path d="m444-462-52 52q-12 11-26.6 10.5-14.6-.5-24.57-11.67Q330-421 330-436.5q0-15.5 11-26.5l114-115q9.82-10 24.73-10T506-578l115 115q11 11 11 26t-10.7 25.7Q610-400 595.2-400T569-411l-52-51v244h236.52q45.48 0 77.98-32.71Q864-283.42 864-328q0-44.67-32.69-77.44-32.68-32.77-77.23-32.77h-64.35v-83.37q0-90-61.1-154.71Q567.52-741 477.64-741q-89.88 0-151.11 64.67-61.24 64.67-61.24 154.59h-19.04q-62.93 0-106.59 43.13Q96-435.48 96-370q0 63 44.39 107.5Q184.79-218 249-218h98q15.2 0 26.1 10.68 10.9 10.67 10.9 25.81 0 15.14-10.9 25.83Q362.2-145 347-145h-98q-93 0-159.5-65.73Q23-276.45 23-369q0-80.71 50.5-143.85Q124-576 204-591q24-99 101.55-161T482-814q116 0 195.5 82T763-534v24q74 3 124 54t50 128q0 74.83-54.08 128.92Q828.83-145 754-145H517q-29.36 0-51.18-22.14Q444-189.27 444-218v-244Zm36 18Z"/></svg>
 				{/if}
 			</label>
 			<input class="hidden" type="file" name="upload" id="upload" on:change={handleFileUpload}>
@@ -144,14 +150,14 @@
 		display: none;
 	}
 	.nube {
-		width: 100%;
-		height: 100%;
+		width: 75%;
+		height: 75%;
 	}
 	.copy {
 		align-self: center;
 		font-size: 1.25em;
 	}
-	.center {
+	.center, label[for="upload"]{
 		text-align: center;
 	}
 	.or-text {
@@ -203,6 +209,13 @@
 		background: white;
 		border-color: white;
 		color: #742284;
+	}
+	.color .steps .step:before, .color .steps .step:after {
+		color: #742284;
+	}
+	.color .steps .step-primary+.step-primary:before, .color .steps .step-primary:after {
+		background-color: #0dcbb4;
+		color: white;
 	}
 	h1 {
 		text-align: center;

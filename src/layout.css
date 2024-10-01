@@ -42,6 +42,63 @@ input, select, textarea {
 	padding: .25em .5em;
 	border-radius: .5em;
 }
+.steps {
+	font-size: 0.8em;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: inline-grid;
+	grid-auto-flow: column;
+	overflow: hidden;
+	overflow-x: auto;
+	counter-reset: step;
+	grid-auto-columns: 1fr;
+}
+.steps .step {
+	display: grid;
+	grid-template-columns: repeat(1, minmax(0, 1fr));
+	grid-template-columns: auto;
+	grid-template-rows: repeat(2, minmax(0, 1fr));
+	grid-template-rows: 40px 1fr;
+	place-items: center;
+	text-align: center;
+	min-width: 4rem;
+}
+.steps .step:after {
+	content: counter(step);
+	counter-increment: step;
+	z-index: 1;
+	position: relative;
+	grid-column-start: 1;
+	grid-row-start: 1;
+	display: grid;
+	height: 2rem;
+	width: 2rem;
+	place-items: center;
+	place-self: center;
+	border-radius: 9999px;
+	background-color: #dfdfdf;
+	color: black;
+}
+.steps .step:first-child:before {
+	display: none;
+}
+.steps .step:before {
+	content: '';
+	top: 0;
+	grid-column-start: 1;
+	grid-row-start: 1;
+	height: .5rem;
+	width: 100%;
+	transform: translate(1, 0);
+	background-color: #dfdfdf;
+	content: "";
+	margin-inline-start: -100%;
+}
+.steps .step-primary+.step-primary:before, .steps .step-primary:after {
+	background-color: black;
+	color: white;
+}
 .toast {
 	display: flex;
 	align-items: center;
