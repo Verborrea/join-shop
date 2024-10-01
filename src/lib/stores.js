@@ -34,30 +34,62 @@ import { writable } from 'svelte/store';
 /** 
  * @returns {Cart} Estado inicial del carrito
  */
-const getInitialCartState = () => ({
-	items: [],
-	subtotal: 0,
-	quantity: 0,
-});
+const getInitialCartState = () => {
+	if (typeof localStorage !== 'undefined') {
+		const storedState = localStorage.getItem('cart');
+		return storedState ? JSON.parse(storedState) : {
+			items: [],
+			subtotal: 0,
+			quantity: 0,
+		};
+	}
+	return {
+		items: [],
+		subtotal: 0,
+		quantity: 0,
+	}
+};
 
 /** 
  * @returns {Datos} Estado inicial del carrito
  */
-const getInitialDatosState = () => ({
-	envio: 0,
-	coords: [],
-	day: '',
-	valid_location: false,
-	name: '',
-	phone: '',
-	email: '',
-	notes: '',
-	address: '',
-})
+const getInitialDatosState = () => {
+	if (typeof localStorage !== 'undefined') {
+		const storedState = localStorage.getItem('datos');
+		return storedState ? JSON.parse(storedState) : {
+			envio: 0,
+			coords: [],
+			day: '',
+			valid_location: false,
+			name: '',
+			phone: '',
+			email: '',
+			notes: '',
+			address: '',
+		};
+	}
+	return {
+		envio: 0,
+		coords: [],
+		day: '',
+		valid_location: false,
+		name: '',
+		phone: '',
+		email: '',
+		notes: '',
+		address: '',
+	}
+}
 
 function createCart() {
 
 	const { subscribe, set, update } = writable(getInitialCartState());
+
+	if (typeof localStorage !== 'undefined') {
+		subscribe((state) => {
+			localStorage.setItem('cart', JSON.stringify(state));
+		});
+	}
 
 	return {
 		subscribe,
@@ -115,12 +147,23 @@ function createCart() {
 		/**
 		 * Vaciar el carrito
 		 */
-		clearCart: () => set(getInitialCartState())
+		clearCart: () => set({
+			items: [],
+			subtotal: 0,
+			quantity: 0,
+		})
 	};
 }
 
 function createDatos() {
 	const { subscribe, set, update } = writable(getInitialDatosState());
+
+	if (typeof localStorage !== 'undefined') {
+		subscribe((state) => {
+			localStorage.setItem('datos', JSON.stringify(state));
+		});
+	}
+
 	return {
 		subscribe,
 		set,

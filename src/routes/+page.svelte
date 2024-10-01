@@ -12,7 +12,7 @@
 
 <Header bind:show_cart={show_cart}/>
 <main>
-	<article class="p4 fcol g4">
+	<article class="px4 py8 fcol g4">
 		<h1>Hola!</h1>
 		<h2>Bienvenido a Join Shop</h2>
 		<p>Este es un demo de tienda virtual completamente personalizable.</p>

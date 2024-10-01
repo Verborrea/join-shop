@@ -7,6 +7,7 @@
 	$: disabled = $cart.quantity === 0 || !$datos.valid_location
 
 	function checkout() {
+		show_cart = false
 		goto('/comprar')
 	}
 </script>
@@ -50,7 +51,10 @@
 	{:else}
 		<section class="fcol g4">
 			{#if $datos.valid_location}
-				<p>Día de envío: {$datos.day}</p>
+				<div class="between">
+					<p>Día de envío:</p>
+					<p>{$datos.day}</p>
+				</div>
 				<div class="between">
 					<strong>Costo de Envío</strong>
 					<strong>S/&nbsp;{$datos.envio.toFixed(2)}</strong>
@@ -58,7 +62,7 @@
 			{:else}
 				<p>Ubicación no válida 🙁</p>	
 			{/if}
-			<a href="/mapa" class="btn">Cambiar la ubicación</a>
+			<a href="/mapa" class="btn" on:click={() => show_cart = false}>Cambiar la ubicación</a>
 		</section>
 	{/if}
 	<section>

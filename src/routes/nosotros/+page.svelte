@@ -12,7 +12,7 @@
 
 <Header bind:show_cart={show_cart}/>
 <main>
-	<article class="p4 fcol g4">
+	<article class="px4 py8 fcol g4">
 		<h1>Nosotros</h1>
 		<p>En esta página se hablará de nosotros.</p>
 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vitae enim volutpat, ultricies augue in, accumsan justo. Nullam egestas tortor in nisl lobortis, id cursus leo gravida.</p><p>In vestibulum velit eget nibh bibendum sagittis. Sed volutpat elit sit amet mattis ultrices. Etiam rutrum ante vitae quam aliquet facilisis. Donec porta eros id erat semper finibus. Donec dictum velit vitae lorem ornare, id dapibus ipsum blandit. Duis at imperdiet diam. Praesent aliquam rhoncus urna, eget placerat ligula luctus vel. Ut euismod commodo aliquam. Ut id porttitor enim. Vivamus in enim convallis, mattis lorem ut, efficitur nisl. Ut dapibus elementum est, vel ultricies lectus.

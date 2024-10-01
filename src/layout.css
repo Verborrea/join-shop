@@ -37,6 +37,29 @@ button {
 button:active {
 	scale: 0.95;
 }
+input, select, textarea {
+	border: 2px solid;
+	padding: .25em .5em;
+	border-radius: .5em;
+}
+.toast {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	position: fixed;
+	top: 16px;
+	left: 50%;
+	transform: translateX(-50%);
+	right: -50%;
+	text-align: center;
+	background: white;
+	padding: 16px 24px;
+	border-radius: 8px;
+	border: 2px solid;
+	z-index: 5;
+	justify-content: center;
+	width: fit-content;
+}
 /* Clases útiles */
 .fc { display: flex; align-items: center }
 .fcol { display: flex; flex-direction: column;}
@@ -48,7 +71,10 @@ button:active {
 .g3 { gap: 0.75em }
 .g2 { gap: 0.5em }
 .g1 { gap: 0.25em }
+.px8 { padding-inline: 2em; }
 .px4 { padding-inline: 1em; }
+.px2 { padding-inline: 0.5em; }
+.py8 { padding-block: 2em; }
 .py4 { padding-block: 1em; }
 .py2 { padding-block: 0.5em; }
 .tached {
@@ -75,9 +101,11 @@ button:active {
 .btn-primary {
 	background: black;
 	color: white;
+	border-color: black;
 }
 .btn-primary:hover {
 	background: #242424;
+	border-color: #242424;
 }
 .btn-error {
 	color: red;
@@ -85,16 +113,17 @@ button:active {
 .btn:disabled {
 	color: #b8b8b8;
 	background: #d7d7d7;
+	border-color: #d7d7d7;
 }
 
 @media (max-width: 700px) {
-	:root, input, button, textarea {
+	:root, input, button, textarea, select {
 		font-size: 18px;
 	}
 }
 
 @media (max-width: 400px) {
-	:root, input, button, textarea {
+	:root, input, button, textarea, select {
 		font-size: 16px;
 	}
 }

@@ -153,7 +153,7 @@
 
 <Header bind:show_cart={show_cart}/>
 <main>
-	<article class="p4 fcol g4">
+	<article class="px4 py8 fcol g4">
 		<h1>Seleccione su ubicación</h1>
 		<strong class="center">Desplácese por el mapa y centre el marcador en la ubicación donde desea que se le entregue el producto.</strong>
 		<div id="map"></div>
