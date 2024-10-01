@@ -9,7 +9,7 @@
     import { goto } from "$app/navigation";
 
 	let show_cart = false
-	let step = 4
+	let step = 1
 	let showToast = false
 	let src: any = null
 
