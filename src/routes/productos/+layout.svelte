@@ -26,7 +26,7 @@
 	}
 	article {
 		margin: auto;
-		max-width: 1080px;
+		max-width: 1200px;
 	}
 	@media (max-width: 700px) {
 		main {

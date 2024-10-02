@@ -90,7 +90,7 @@
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(max(min(var(--min-grid-absolute-size), 100%), var(--max-grid-relative-size) - 1rem), 1fr));
 		align-items: center;
-		gap: 1rem;
+		gap: 2em;
 	}
 	.products {
 		--min-grid-absolute-size: 16rem;

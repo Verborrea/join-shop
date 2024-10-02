@@ -51,8 +51,8 @@
 		font-size: 2em;
 	}
 	.products {
-		--min-grid-absolute-size: 16rem;
-		--max-grid-relative-size: 33%;
+		--min-grid-absolute-size: 12rem;
+		--max-grid-relative-size: 25%;
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(max(min(var(--min-grid-absolute-size), 100%), var(--max-grid-relative-size) - 1rem), 1fr));
 		gap: 1rem;
