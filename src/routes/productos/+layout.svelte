@@ -4,10 +4,6 @@
 	import Header from "$lib/compo/Header.svelte";
 
 	let show_cart = false
-
-	export let data
-
-	const categories = data.categories
 </script>
 
 <Header bind:show_cart={show_cart}/>

@@ -5,13 +5,13 @@
 
 	export let data
 
-	$: products = data.products
+	$: products = data.products.documents
 
 	$: final = data.product.discount ?
 		data.product.price * data.product.discount / 100 :
 		data.product.price
 
-	$: cantidad = $cart.items.filter(item => item.id === data.product.id).reduce(
+	$: cantidad = $cart.items.filter(item => item.id === data.product.$id).reduce(
 		(acc, cur) => acc + cur.quantity,
 		0
 	)
@@ -33,7 +33,7 @@
 		<h1>{data.product.name}</h1>
 		<ul>
 			{#each data.product.categories as category}
-				<li><a href="/productos?category={category.id}">{category.name}</a></li>
+				<li><a href="/productos?category={category.$id}">{category.name}</a></li>
 			{/each}
 		</ul>
 		<p>{data.product.desc}</p>
@@ -47,9 +47,9 @@
 			<strong>S/&nbsp;{final.toFixed(2)}</strong>
 		</p>
 		<section class="fc g4">
-			<button class="btn btn-square" type="button" on:click={() => cart.removeItem(data.product.id)}>-</button>
+			<button class="btn btn-square" type="button" on:click={() => cart.removeItem(data.product.$id)}>-</button>
 			<span>{cantidad}</span>
-			<button class="btn btn-square" type="button" on:click={() => cart.addItem(data.product.id, data.product.name, final)}>+</button>
+			<button class="btn btn-square" type="button" on:click={() => cart.addItem(data.product.$id, data.product.name, final)}>+</button>
 		</section>
 	</section>
 </article>
@@ -58,7 +58,7 @@
 	<section class="products">
 		{#each products as product}
 			<Product
-				id={product.id}
+				id={product.$id}
 				name={product.name}
 				price={product.price}
 				discount={product.discount}

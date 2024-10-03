@@ -148,7 +148,13 @@
 				<button type="button" class="btn btn-primary" on:click={() => (step++)}>Subir Captura</button>
 			</div>
 		{:else if step === 4}
-			<p class="center">{src ? 'Puedes hacer click en la imagen para cambiarla' : 'Sube tu captura aquí abajo.'}</p>
+			<p class="center">
+				{#if src}
+					Puedes hacer click en la imagen para cambiarla
+				{:else}
+					Sube tu captura <label for="upload"><strong>aquí</strong></label>.
+				{/if}
+			</p>
 			<label for="upload"
 					on:drop={handleDrop}
 					on:dragover={handleDragOver}

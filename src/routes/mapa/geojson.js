@@ -10,16 +10,8 @@ export const features = {
         "stroke-opacity": 1,
         "fill": "#ef476f",
         "fill-opacity": 0.5,
-        "days": [
-          "L",
-          "M",
-          "X"
-        ],
-        "price": [
-          3,
-          4,
-          5
-        ]
+        "days": ["L","M","X","J","V"],
+        "price": [2.5,2.5,2.5,2.5,5]
       },
       "geometry": {
         "coordinates": [
@@ -158,14 +150,8 @@ export const features = {
         "stroke-opacity": 1,
         "fill": "#ffd166",
         "fill-opacity": 0.5,
-        "days": [
-          "L",
-          "V"
-        ],
-        "price": [
-          1,
-          2
-        ]
+        "days": ["V","S"],
+        "price": [5,8]
       },
       "geometry": {
         "coordinates": [
@@ -226,8 +212,8 @@ export const features = {
           "V"
         ],
         "price": [
-          1,
-          2
+          10,
+          20
         ]
       },
       "geometry": {
@@ -335,14 +321,8 @@ export const features = {
         "stroke-opacity": 1,
         "fill": "#118ab2",
         "fill-opacity": 0.5,
-        "days": [
-          "L",
-          "V"
-        ],
-        "price": [
-          1,
-          2
-        ]
+        "days": ["L","M","X"],
+        "price": [5,6,7]
       },
       "geometry": {
         "coordinates": [

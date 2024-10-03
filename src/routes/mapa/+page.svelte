@@ -34,7 +34,7 @@
 			const turfPoly = polygon(zona.geometry.coordinates)
 			if (booleanPointInPolygon(punto, turfPoly)) {	
 				return {
-					id: zona.id,
+					id: zona.properties.id,
 					days: zona.properties.days,
 					prices: zona.properties.price
 				}
@@ -155,8 +155,8 @@
 <main>
 	<article class="px4 py8 fcol g4">
 		<h1>Seleccione su ubicación</h1>
-		<strong class="center">Desplácese por el mapa y centre el marcador en la ubicación donde desea que se le entregue el producto.</strong>
-		<div id="map"></div>
+		<p class="center">Desplácese por el mapa y centre el marcador en la ubicación donde desea que se le entregue el producto.</p>
+		
 		{#if zone_days.length}
 			<section class="fc between">
 				<strong>Día de envío:</strong>
@@ -171,9 +171,10 @@
 				<p>S/&nbsp;{$datos.envio.toFixed(2)}</p>
 			</section>
 		{:else}
-			<p>De momento no podemos enviar pedidos en esta zona. Puede escoger
-				otra o comunicarse con nosotros mediante <a href="/">WhatsApp</a>.</p>
+			<h2 class="red"> Oh no :&lpar;</h2>
+			<p class="red">No podemos enviar pedidos en esta zona. Por favor escoga otra o <a class="red" href="https://wa.me/51940185837" target="_blank">comuniquese con nosotros</a>.</p>
 		{/if}
+		<div id="map"></div>
 		<button class="btn" type="button" disabled={zone_days.length == 0} on:click={checkout}>Continuar</button>
 	</article>
 	<Cart bind:show_cart={show_cart}/>
@@ -181,6 +182,9 @@
 <Footer/>
 
 <style>
+	.red {
+		color: #ff6961;;
+	}
 	h1 {
 		font-size: 2em;
 	}

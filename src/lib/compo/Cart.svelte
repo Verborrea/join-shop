@@ -86,7 +86,7 @@
     top: 90px;
     bottom: 0;
     width: 360px;
-    background: white;
+    background: var(--rose);
     transition: transform .5s;
     transform: translateX(100%);
 	}

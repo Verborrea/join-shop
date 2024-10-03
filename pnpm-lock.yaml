@@ -14,6 +14,9 @@ importers:
       '@turf/helpers':
         specifier: ^7.1.0
         version: 7.1.0
+      appwrite:
+        specifier: ^16.0.1
+        version: 16.0.1
       mapbox-gl:
         specifier: ^3.7.0
         version: 3.7.0
@@ -374,6 +377,9 @@ packages:
     resolution: {integrity: sha512-tcpGyI9zbizT9JbV6oYE477V6mTlXvvi0T0G3SNIYE2apm/G5huBa1+K89VGeovbg+jycCrfhl3ADxErOuO6Jg==}
     engines: {node: '>=0.4.0'}
     hasBin: true
+
+  appwrite@16.0.1:
+    resolution: {integrity: sha512-4Jni6zqpzvNz70DcvbwUZG4Zh6cxA9vgipLIrVJ7sznFVKo+me6vNf2LQ9vKicOfR7J2DCb996Uh3HeE96RuTA==}
 
   aria-query@5.3.2:
     resolution: {integrity: sha512-COROpnaoap1E2F000S62r6A60uHZnmlvomhfyT2DlTcrY1OrBKn2UhH7qn5wTC9zMvD0AY7csdPSNwKP+7WiQw==}
@@ -896,6 +902,8 @@ snapshots:
       '@types/geojson': 7946.0.14
 
   acorn@8.12.1: {}
+
+  appwrite@16.0.1: {}
 
   aria-query@5.3.2: {}
 

@@ -8,6 +8,7 @@
 	line-height: 1.5;
 }
 :root {
+	--rose: #dea193;
 	scroll-behavior: smooth;
 }
 * { box-sizing: border-box }
@@ -171,6 +172,9 @@ input, select, textarea {
 	color: #b8b8b8;
 	background: #d7d7d7;
 	border-color: #d7d7d7;
+}
+.center {
+	text-align: center;
 }
 
 @media (max-width: 700px) {

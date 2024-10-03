@@ -11,7 +11,8 @@
 </script>
 
 <header class="fc between p4 g4">
-	<a href="/"><h1>Join Shop</h1></a>
+	<a href="/" class="desktop-only"><h1>Ampersand</h1></a>
+	<a href="/" class="mobile-only"><h1>&</h1></a>
 	<div class="fc g4">
 		<nav class="fc g4" class:active>
 			<a href="/" on:click={() => active = false}>Inicio</a>
@@ -41,8 +42,23 @@
 		border-bottom: 2px solid;
 		position: sticky;
 		inset: 0 0 auto 0;
-		background-color: white;
+		background-color: var(--rose);
 		z-index: 4;
+	}
+	h1 {
+		font-weight: 800;
+		letter-spacing: -0.04em;
+	}
+	nav a {
+		background: linear-gradient(0deg, white, white) no-repeat right bottom / 0 var(--bg-h);
+		transition: background-size 350ms;
+		padding-inline: 0.25em;
+		--bg-h: 100%;
+	}
+	nav a:where(:hover, :focus-visible) {
+		text-decoration: none;
+		background-size: 100% var(--bg-h);
+		background-position-x: left;
 	}
 	.burger {
 		display: none;
@@ -53,20 +69,29 @@
 	}
 	.cart span {
 		position: absolute;
-    background-color: black;
-    color: white;
-    font-size: 16px;
-    width: 24px;
-		height: 24px;
-    top: -8px;
-    right: -8px;
+		display: flex;
+		background-color: #000000;
+		color: #ffffff;
+		font-size: 14px;
+		width: 26px;
+		height: 26px;
+		top: -8px;
+		right: -8px;
 		border-radius: 50%;
+		justify-content: center;
+		align-items: center;
+	}
+	.mobile-only {
+		display: none;
 	}
 	@media (max-width: 700px) {
+		.desktop-only {
+			display: none;
+		}
 		h1 {
 			height: 38px;
 		}
-		.burger {
+		.burger, .mobile-only {
 			display: flex;
 		}
 		nav {

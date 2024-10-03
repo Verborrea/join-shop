@@ -12,21 +12,27 @@
 
 <Header bind:show_cart={show_cart}/>
 <main>
-	<article class="px4 py8 fcol g4">
-		<h1>Hola!</h1>
-		<h2>Bienvenido a Join Shop</h2>
-		<p>Este es un demo de tienda virtual completamente personalizable.</p>
-		<p>Dirigete a la tienda para empezar.</p>
+	<article class="px4 py8 fcol g4 center">
+		<div class="big">&</div>
+		<h1>Hey!</h1>
+		<h2>Bienvenido a Ampersand 👋</h2>
+		<p>Esta será una tienda virtual funcional muy pronto.</p>
+		<p>Dirigete a <a href="/productos">Productos</a> para empezar.</p>
 	</article>
 	<Cart bind:show_cart={show_cart}/>
 </main>
 <Footer/>
 
 <style>
+	.big {
+		font-size: 4em;
+		font-weight: 800;
+	}
 	h1 {
 		font-size: 2em;
 	}
 	main {
+		display: flex;
 		position: relative;
 		min-height: calc(100dvh - 90px - 72px);
 	}

@@ -1,5 +1,5 @@
 <footer class="fc p4 center">
-	&copy; 2025 Join Shop
+	&copy; 2024 Ampersand
 </footer>
 
 <style>
