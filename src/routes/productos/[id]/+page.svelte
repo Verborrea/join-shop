@@ -8,7 +8,7 @@
 	$: products = data.products.documents
 
 	$: final = data.product.discount ?
-		data.product.price * data.product.discount / 100 :
+		data.product.price * (100 - data.product.discount) / 100 :
 		data.product.price
 
 	$: cantidad = $cart.items.filter(item => item.id === data.product.$id).reduce(

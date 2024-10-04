@@ -3,7 +3,7 @@
 
 	export let id, src, name, discount, price, categories
 
-	$: final = discount ? price * discount / 100 : price
+	$: final = discount ? price * (100 - discount) / 100 : price
 </script>
 
 <article class="g2">
