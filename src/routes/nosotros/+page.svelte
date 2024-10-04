@@ -39,6 +39,7 @@
 	img {
 		border-radius: 1em;
 		width: 100%;
+		aspect-ratio: 768 / 512;
 	}
 	@media (max-width: 700px) {
 		main {

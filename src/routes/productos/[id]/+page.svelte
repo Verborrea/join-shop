@@ -36,7 +36,7 @@
 				<li><a href="/productos?category={category.$id}">{category.name}</a></li>
 			{/each}
 		</ul>
-		<p>{data.product.desc}</p>
+		<p class="wrap">{data.product.desc}</p>
 		{#if data.product.discount}
 			<p>Este producto cuenta con {data.product.discount}% de Descuento</p>
 		{/if}
@@ -70,6 +70,9 @@
 </article>
 
 <style>
+	.wrap {
+		white-space: break-spaces;
+	}
 	h1 {
 		font-size: 2em;
 	}
