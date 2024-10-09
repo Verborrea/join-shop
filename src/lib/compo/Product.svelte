@@ -19,7 +19,7 @@
 		<a href="/productos/{id}"><h1>{name}</h1></a>
 		<div class="categories fc g2">
 			{#each categories as category}
-				<a href="/productos?category={category.id}">{category.name}</a>
+				<a href="/productos?category={category.$id}">{category.name}</a>
 			{/each}
 		</div>
 	</section>

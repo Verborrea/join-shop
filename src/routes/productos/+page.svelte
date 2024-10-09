@@ -1,48 +1,38 @@
 <script lang="ts">
-	import { pushState } from '$app/navigation'
-	import Product from "$lib/compo/Product.svelte";
+	import { goto } from '$app/navigation'
+	import { page } from '$app/stores'
+	import Product from '$lib/compo/Product.svelte'
 
 	export let data
 
-	let { categories_promise, products_promise, category } = data
-	let allProducts: any[] = []
-	let products: any[] = []
+	let categories_promise = data.categories_promise
 
-	async function loadProducts() {
-		try {
-			const products_list = await products_promise;
-			allProducts = products_list.documents;
-			if (category) {
-				products = allProducts.filter(p => p.categories.some((c: any) => c.$id === category))
-			} else {
-				products = allProducts
-			}
-		} catch (error) {
-			console.error('Error loading products:', error);
-		}
-	}
+	$: category = $page.url.searchParams.get('category')
+	$: c_page = $page.url.searchParams.get('page') || 0
 
 	function setCategory(cat_id: string|null) {
-		category = cat_id
 		const url = new URL(window.location.href)
+		url.searchParams.set('page', '0')
 		if (cat_id) {
 			url.searchParams.set('category', cat_id)
-			products = allProducts.filter(p => p.categories.some((c: any) => c.$id === category))
+			goto(url)
 		} else {
 			url.searchParams.delete('category')
-			products = allProducts
+			goto(url)
 		}
-		pushState(url, {})
 	}
-	
-	loadProducts()
+
+	function setPage(_page: number) {
+		const url = new URL(window.location.href)
+		url.searchParams.set('page', _page.toString())
+		goto(url)
+	}
 </script>
 
 
 <svelte:head>
 	<title>Productos | Join Shop</title>
 </svelte:head>
-
 
 	
 <section class="fcol g4">
@@ -61,18 +51,29 @@
 	{/await}
 </section>
 
-<section class="products g4">
-	{#each products as product}
-		<Product
-			id={product.$id}
-			src={product.images[0]}
-			name={product.name}
-			price={product.price}
-			discount={product.discount}
-			categories={product.categories}
-		/>
-	{/each}
-</section>
+{#await data.products_promise}
+	<p>Cargando...</p>
+{:then products}
+	<section class="products g4">
+		{#each products.documents as product}
+			<Product
+				id={product.$id}
+				src={product.images[0]}
+				name={product.name}
+				price={product.price}
+				discount={product.discount}
+				categories={product.categories}
+			/>
+		{/each}
+	</section>
+	<section class="pagination fc g2">
+		{#each { length: Math.ceil(products.total/12) } as _, index}
+			<button type="button" class="btn" class:btn-primary={c_page == index} on:click={() => setPage(index)}>
+				{index + 1}
+			</button>
+		{/each}
+	</section>
+{/await}
 
 <style>
 	h1 {
@@ -91,11 +92,17 @@
 	.categories::-webkit-scrollbar { 
 		display: none;
 	}
+	.categories button {
+		white-space: nowrap;
+	}
 	.products {
 		--min-grid-absolute-size: 12rem;
 		--max-grid-relative-size: 25%;
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(max(min(var(--min-grid-absolute-size), 100%), var(--max-grid-relative-size) - 1rem), 1fr));
 		gap: 1rem;
+	}
+	.pagination {
+		justify-content: center;
 	}
 </style>
